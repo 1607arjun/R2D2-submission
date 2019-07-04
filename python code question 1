@@ -1,0 +1,18 @@
+from django.contrib import admin
+
+# # # Register your models here.
+#
+from .models import person
+#
+class personadmin(admin.ModelAdmin):
+     fields = ['name','cast','rating']
+    # # fields = '__all__'
+    # extra_fields = ['pizza']
+     list_display = ['name','cast','rating',]
+     ordering = ['rating']
+    # actions = ['personadmin']
+     search_fields = ('name','cast','rating')
+    # list_filter = ('age','first_name','last_name')
+    # prepopulated_fields = {'last_name':('first_name','age')}
+
+admin.site.register(person,personadmin)  #can be done by decoratorexa: @admin.register(person,personadmin)
